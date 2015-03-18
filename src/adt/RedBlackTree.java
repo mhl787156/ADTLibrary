@@ -7,11 +7,9 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * Created by Mickey on 11/03/2015.
+ * Created by Mickey on 18/03/2015.
  */
-public class AVLTree<K extends Comparable<K>,V> implements AdtDictionary<K,V> {
-
-
+public class RedBlackTree<K extends Comparable<K>,V> implements AdtDictionary<K,V> {
     @Override
     public int size() {
         return 0;

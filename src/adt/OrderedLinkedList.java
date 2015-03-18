@@ -1,7 +1,7 @@
 package adt;
 
-import adtInterface.Adt;
-import adtInterface.AdtEntry;
+import adtInterface.AdtDictionary;
+import adtInterface.AdtDictionaryEntry;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
  * the key-attribute of type K. Duplicate keys are not permitted.
  */
 public class OrderedLinkedList<K extends Comparable<? super K>, V>
-        implements Adt<K, V> {
+        implements AdtDictionary<K, V> {
 
         private OrderedLinkedListEntry<K,V> firstEntry = null;
         private int size = 0;
@@ -182,8 +182,8 @@ public class OrderedLinkedList<K extends Comparable<? super K>, V>
         }
 
         @Override
-        public Iterator<AdtEntry<K, V>> iterator() {
-                return new Iterator<AdtEntry<K, V>>() {
+        public Iterator<AdtDictionaryEntry<K, V>> iterator() {
+                return new Iterator<AdtDictionaryEntry<K, V>>() {
 
                     private OrderedLinkedListEntry currentEntry = firstEntry;
                     private final int ff = modificationChecker;
@@ -194,7 +194,7 @@ public class OrderedLinkedList<K extends Comparable<? super K>, V>
                     }
 
                     @Override
-                    public AdtEntry<K, V> next() throws ConcurrentModificationException{
+                    public AdtDictionaryEntry<K, V> next() throws ConcurrentModificationException{
 
                         if(ff != modificationChecker){
                             throw new ConcurrentModificationException();

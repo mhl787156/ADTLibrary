@@ -1,10 +1,10 @@
 package adt;
 
 
-import adtInterface.AdtEntry;
+import adtInterface.AdtDictionaryEntry;
 
 // Implementation class representing nodes of the binary search tree.
-public class BinarySearchTreeEntry<K, V> implements AdtEntry<K, V> {
+public class BinarySearchTreeEntry<K, V> implements AdtDictionaryEntry<K, V> {
 
     private K key;
     private V value;

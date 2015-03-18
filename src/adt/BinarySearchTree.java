@@ -1,7 +1,7 @@
 package adt;
 
-import adtInterface.Adt;
-import adtInterface.AdtEntry;
+import adtInterface.AdtDictionary;
+import adtInterface.AdtDictionaryEntry;
 
 import java.util.*;
 
@@ -15,7 +15,7 @@ import java.util.*;
  * Duplicate keys are not permitted.
  */
 public class BinarySearchTree<K extends Comparable<? super K>, V> implements
-        Adt<K, V> {
+        AdtDictionary<K, V> {
 
     private BinarySearchTreeEntry root;
     private int size = 0;
@@ -180,9 +180,9 @@ public class BinarySearchTree<K extends Comparable<? super K>, V> implements
         }
 
     @Override
-    public Iterator<AdtEntry<K, V>> iterator() {
+    public Iterator<AdtDictionaryEntry<K, V>> iterator() {
 
-                return new Iterator<AdtEntry<K, V>>() {
+                return new Iterator<AdtDictionaryEntry<K, V>>() {
 
                     private BinarySearchTreeEntry currEntry = root;
                     private Stack<BinarySearchTreeEntry> stack
@@ -206,7 +206,7 @@ public class BinarySearchTree<K extends Comparable<? super K>, V> implements
                     }
 
                     @Override
-                    public AdtEntry<K, V> next() throws ConcurrentModificationException {
+                    public AdtDictionaryEntry<K, V> next() throws ConcurrentModificationException {
                         //Breadth first Traversal
                         if (ff != modificationChecker) {
                             throw new ConcurrentModificationException();

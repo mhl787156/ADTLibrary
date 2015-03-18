@@ -1,6 +1,6 @@
 package adtInterface;
 
-public interface AdtEntry<K, V> {
+public interface AdtDictionaryEntry<K, V> {
 
     /**
      * @return the key in this entry

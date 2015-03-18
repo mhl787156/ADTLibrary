@@ -17,8 +17,8 @@ import java.util.NoSuchElementException;
  * <K> is type for the comparable key element <V> is type for the associated
  * value element
  */
-public interface Adt<K extends Comparable<? super K>, V> extends
-        Iterable<AdtEntry<K, V>> {
+public interface AdtDictionary<K extends Comparable<? super K>, V> extends
+        Iterable<AdtDictionaryEntry<K, V>> {
 
     /**
      * 

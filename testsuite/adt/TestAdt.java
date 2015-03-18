@@ -12,15 +12,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import adtInterface.Adt;
-import adtInterface.AdtEntry;
+import adtInterface.AdtDictionary;
+import adtInterface.AdtDictionaryEntry;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public abstract class TestAdt {
 
-    Adt<String, Integer> d;
+    AdtDictionary<String, Integer> d;
 
     @Before
     public abstract void setUp();
@@ -113,7 +113,7 @@ public abstract class TestAdt {
         d.put("d" , 1); // covers end of list
         d.put("a" , 2); // covers first of list
         d.put("c" , 5); //covers between 2 elem
-        Iterator<AdtEntry<String, Integer>> it = d.iterator();
+        Iterator<AdtDictionaryEntry<String, Integer>> it = d.iterator();
         assertEquals("first of list fail", "a", it.next().getKey());
         assertEquals("input fail", "b", it.next().getKey());
         assertEquals("between 2 elem fail", "c", it.next().getKey());
@@ -161,7 +161,7 @@ public abstract class TestAdt {
 
     @Test
     public void testListIteratorHasNext() {
-        Iterator<AdtEntry<String, Integer>> it = d.iterator();
+        Iterator<AdtDictionaryEntry<String, Integer>> it = d.iterator();
         assertFalse("Iterator: hasNext() failed with empty adt", it
                 .hasNext());
         d.clear();
@@ -203,14 +203,14 @@ public abstract class TestAdt {
         Collections.sort(sortedCats);
 
         Iterator<String> expected = sortedCats.iterator();
-        Iterator<AdtEntry<String, Integer>> actual = d.iterator();
+        Iterator<AdtDictionaryEntry<String, Integer>> actual = d.iterator();
 
         while (expected.hasNext()) {
             assertTrue("Iterator hasNext() failed when expected", actual
                     .hasNext());
 
             String expectedCat = expected.next();
-            AdtEntry<String, Integer> actualCat = actual.next();
+            AdtDictionaryEntry<String, Integer> actualCat = actual.next();
 
             assertEquals("Iterator next() returned the wrong element",
                     expectedCat, actualCat.getKey());
@@ -229,7 +229,7 @@ public abstract class TestAdt {
             d.put(cats.get(i), i);
         }
 
-        Iterator<AdtEntry<String, Integer>> it = d.iterator();
+        Iterator<AdtDictionaryEntry<String, Integer>> it = d.iterator();
 
         d.remove("Bustopher");
 
@@ -244,7 +244,7 @@ public abstract class TestAdt {
             d.put(cats.get(i), i);
         }
 
-        Iterator<AdtEntry<String, Integer>> it = d.iterator();
+        Iterator<AdtDictionaryEntry<String, Integer>> it = d.iterator();
 
         d.clear();
 
@@ -259,7 +259,7 @@ public abstract class TestAdt {
             d.put(cats.get(i), i);
         }
 
-        Iterator<AdtEntry<String, Integer>> it = d.iterator();
+        Iterator<AdtDictionaryEntry<String, Integer>> it = d.iterator();
 
         d.put("SmellyCat" , 1);
 

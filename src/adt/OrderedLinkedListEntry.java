@@ -1,9 +1,9 @@
 package adt;
 
 
-import adtInterface.AdtEntry;
+import adtInterface.AdtDictionaryEntry;
 
-public class OrderedLinkedListEntry<K, V> implements AdtEntry<K, V> {
+public class OrderedLinkedListEntry<K, V> implements AdtDictionaryEntry<K, V> {
 
     private K key;
     private V value;
